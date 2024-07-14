@@ -8,13 +8,13 @@ int main()
     const char* str = "Hello, World!";
 
     // Testing strdup
-    char* dup1 = strdup(str);
-    printf("strdup result: %s\n", dup1);
+    char* dup1 = ft_itoa(1235421413513512513);
+    printf("1235 result: %s\n", dup1);
     free(dup1);
 
     // Testing ft_strdup
-    char* dup2 = ft_strdup(str);
-    printf("ft_strdup result: %s\n", dup2);
+    char* dup2 = ft_itoa(-1235);
+    printf("-1235 result: %s\n", dup1);
     free(dup2);
 
     return 0;

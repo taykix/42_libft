@@ -27,6 +27,6 @@ char* ft_strnstr(const char* big, const char* little, size_t len);
 int ft_atoi(const char* nptr);
 void* ft_calloc(size_t nmemb, size_t size);
 char* ft_strdup(const char* s);
-
+char *ft_itoa(int n);
 
 #endif
