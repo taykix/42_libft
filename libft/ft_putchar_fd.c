@@ -6,13 +6,13 @@
 /*   By: tayki <tayki@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 10:16:17 by tayki             #+#    #+#             */
-/*   Updated: 2024/07/15 10:17:37 by tayki            ###   ########.fr       */
+/*   Updated: 2024/07/15 16:13:24 by tayki            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putchar_fd(char c, int fd)
+void	ft_putchar_fd(char c, int fd)
 {
-
+	write(fd, &c, 1);
 }
