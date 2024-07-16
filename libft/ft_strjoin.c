@@ -1,36 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkarakay <tkarakay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/12 15:16:46 by tkarakay          #+#    #+#             */
-/*   Updated: 2024/07/12 16:06:43 by tkarakay         ###   ########.fr       */
+/*   Created: 2024/07/13 20:01:56 by tkarakay          #+#    #+#             */
+/*   Updated: 2024/07/13 20:08:05 by tkarakay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned char		*d;
-	const unsigned char	*s = (const unsigned char *)src;
+	size_t	len1;
+	size_t	len2;
+	char	*new_str;
+	size_t	i;
 
-	d = (unsigned char *)dest;
-	if (d == s)
-		return (dest);
-	if (d < s)
+	if (!s1 || !s2)
+		return (NULL);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	new_str = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
+	if (!new_str)
+		return (NULL);
+	i = 0;
+	while (*s1)
 	{
-		while (n--)
-			*d++ = *s++;
+		new_str[i++] = *s1++;
 	}
-	else
+	while (*s2)
 	{
-		d += n;
-		s += n;
-		while (n--)
-			*--d = *--s;
+		new_str[i++] = *s2++;
 	}
-	return (dest);
+	new_str[i] = '\0';
+	return (new_str);
 }

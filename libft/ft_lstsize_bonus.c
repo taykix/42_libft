@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tayki <tayki@student.42.fr>                +#+  +:+       +#+        */
+/*   By: tkarakay <tkarakay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/15 20:25:05 by tayki             #+#    #+#             */
-/*   Updated: 2024/07/15 20:29:41 by tayki            ###   ########.fr       */
+/*   Created: 2024/07/15 21:28:29 by tayki             #+#    #+#             */
+/*   Updated: 2024/07/16 11:56:34 by tkarakay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int	ft_lstsize(t_list *lst)
 {
-	if (lst)
+	int		i;
+	t_list	*tmp;
+
+	tmp = lst;
+	i = 0;
+	while (tmp)
 	{
-		if (*lst)
-		{
-			new->next = *lst;
-		}
+		tmp = tmp->next;
+		i++;
 	}
+	return (i);
 }

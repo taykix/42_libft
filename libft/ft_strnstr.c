@@ -1,40 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tkarakay <tkarakay@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/12 15:57:29 by tkarakay          #+#    #+#             */
+/*   Updated: 2024/07/13 18:09:35 by tkarakay         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-char* ft_strnstr(const char* big, const char* little, size_t len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	size_t big_len;
-	size_t little_len;
-	size_t i;
-	size_t j;
-	int match;
+	size_t	i;
+	size_t	j;
+	size_t	little_len;
+	size_t	big_len;
 
-	i = 0;
-	j = 0;
-	big_len = ft_strlen(big);
 	little_len = ft_strlen(little);
-
+	big_len = ft_strlen(big);
 	if (little_len == 0)
-		return ((char*)big);
-
-	while (i < len && i <= big_len - little_len )
+		return ((char *)big);
+	if (big_len < little_len || len < little_len)
+		return (NULL);
+	i = 0;
+	while (i <= len - little_len && i <= big_len - little_len)
 	{
 		j = 0;
-		match = 1;
-		while (j < little_len)
+		while (j < little_len && big[i + j] == little[j])
 		{
-			if (big[i + j] != little[j])
-			{
-				match = 0;
-				break;
-			}
 			j++;
 		}
-		if (match == 1)
-		{
-			return ((char*)(big + i));
-		}
+		if (j == little_len)
+			return ((char *)(big + i));
 		i++;
 	}
-
-	return NULL;
+	return (NULL);
 }
